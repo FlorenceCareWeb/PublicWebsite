@@ -281,6 +281,6 @@ if (contactForm) {
 const floatingCallBtn = document.getElementById('floatingCallBtn');
 if (floatingCallBtn) {
   floatingCallBtn.addEventListener('click', () => {
-    window.location.href = 'tel:+18000000000';
+    window.location.href = 'tel:+447767178655';
   });
 }
