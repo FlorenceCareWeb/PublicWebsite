@@ -108,11 +108,25 @@ gsap.utils.toArray('.card').forEach((card, index) => {
 });
 
 // FOCUS ITEM ANIMATIONS
-gsap.utils.toArray('.focus-item, .approach-item, .testimonial, .partner-logo').forEach((item, index) => {
+gsap.utils.toArray('.focus-item, .testimonial, .partner-logo').forEach((item, index) => {
   gsap.from(item, {
     scrollTrigger: {
-      trigger: item.parentElement,
-      start: 'top 75%'
+      trigger: item,
+      start: 'top 80%'
+    },
+    opacity: 0,
+    y: 60,
+    duration: 0.8,
+    delay: index * 0.1,
+    ease: 'power3.out'
+  });
+});
+
+gsap.utils.toArray('.approach-item').forEach((item, index) => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: 'top 80%'
     },
     opacity: 0,
     y: 60,
@@ -141,6 +155,10 @@ gsap.utils.toArray('.image, .full-image').forEach((img) => {
 // STATS COUNTER ANIMATION
 gsap.utils.toArray('.stat-item span').forEach((stat) => {
   const text = stat.textContent.trim();
+  
+  // Skip non-numeric stats like "24/7"
+  if (text.includes('/') || text.includes('24/7')) return;
+  
   const number = parseInt(text.replace(/\D/g, ''));
   const suffix = text.replace(/[0-9]/g, '');
 
