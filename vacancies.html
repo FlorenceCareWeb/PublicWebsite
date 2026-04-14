@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Current vacancies at Florence Care 24 LTD for registered nurses and healthcare assistants.">
+  <title>Vacancies | Florence Care 24 LTD</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wwwroot/style/home.css">
+  <link rel="stylesheet" href="wwwroot/style/vacancies.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="wwwroot/images/logo.jpeg" alt="Florence Care 24 LTD">
+    <span>Florence Care 24</span>
+  </div>
+  <nav>
+    <a href="home.html#about">About</a>
+    <a href="home.html#services">Services</a>
+    <a href="home.html#approach">Approach</a>
+    <a href="home.html#contact">Contact</a>
+    <a href="vacancies.html">Career</a>
+    <a href="home.html">Home</a>
+  </nav>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="home.html#about">About</a>
+  <a href="home.html#services">Services</a>
+  <a href="home.html#approach">Approach</a>
+  <a href="home.html#contact">Contact</a>
+  <a href="vacancies.html">Career</a>
+  <a href="home.html">Home</a>
+</div>
+
+<main>
+  <section class="section vacancies-header">
+    <h1>Current Career Opportunities</h1>
+    <p class="vacancies-intro">We're actively recruiting for the following positions. Join our team and make a difference in people's lives.</p>
+    <div class="vacancies-divider"></div>
+      <div class="job-grid">
+        <article class="job-card" data-role="Registered Nurse">
+          <div class="job-card-image">
+            <img src="wwwroot/images/national-cancer-institute-BxXgTQEw1M4-unsplash.jpg" alt="Registered Nurse role">
+          </div>
+          <div class="job-card-body">
+            <h3>Registered Nurse</h3>
+            <p><strong>Location:</strong> Care homes across the UK</p>
+            <p><strong>Contract:</strong> Full-time / Part-time / Bank shifts</p>
+            <p class="job-summary">Provide clinical nursing support, manage medication, and contribute to personalised care plans in residential settings.</p>
+            <div class="job-more-content">
+              <ul>
+                <li>Deliver high-quality nursing care within residential and nursing home environments.</li>
+                <li>Support care planning, medication administration and clinical record keeping.</li>
+                <li>Collaborate with multidisciplinary teams to promote compliant, compassionate care.</li>
+              </ul>
+              <p><strong>Requirements:</strong> NMC registration, care home experience preferred, strong communication skills.</p>
+              <p><strong>Benefits:</strong> Flexible shifts, mentoring support, competitive pay and ongoing development.</p>
+            </div>
+            <button type="button" class="read-more-toggle">Read more</button>
+            <div class="job-card-actions">
+              <button type="button" class="cta-button apply-btn" data-role="Registered Nurse">Apply Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="job-card" data-role="Health Care Assistant">
+          <div class="job-card-image">
+            <img src="wwwroot/images/centre-for-ageing-better-YzBSMukvJVY-unsplash.jpg" alt="Health Care Assistant role">
+          </div>
+          <div class="job-card-body">
+            <h3>Health Care Assistant</h3>
+            <p><strong>Location:</strong> Residential and nursing care settings</p>
+            <p><strong>Contract:</strong> Permanent, temporary or flexible shifts</p>
+            <p class="job-summary">Help residents with personal care, mobility and daily living tasks while working with nursing teams.</p>
+            <div class="job-more-content">
+              <ul>
+                <li>Support residents with personal care, mobility and daily living activities.</li>
+                <li>Work closely with nurses and care teams to deliver compassionate support.</li>
+                <li>Help maintain a safe, caring environment for people with complex needs.</li>
+              </ul>
+              <p><strong>Requirements:</strong> Previous care experience preferred, strong teamwork and a positive attitude.</p>
+              <p><strong>Benefits:</strong> Flexible hours, training opportunities and a supportive employer network.</p>
+            </div>
+            <button type="button" class="read-more-toggle">Read more</button>
+            <div class="job-card-actions">
+              <button type="button" class="cta-button apply-btn" data-role="Health Care Assistant">Apply Now</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal-backdrop" id="applyModal" aria-hidden="true">
+    <div class="modal-content">
+      <button type="button" class="modal-close" aria-label="Close application form">×</button>
+      <h2>Apply for <span id="modalRoleLabel">this role</span></h2>
+      <form id="applyForm" action="https://script.google.com/macros/s/AKfycbynN6b266TuTg5R_dmMHqZb3daJe3hvCl4j4ZJzfg3kIm3zT0D0xjmzIvKSs1NDXv-p/exec" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="source" value="Vacancies Page Application">
+        <input type="hidden" name="role" id="applyRoleInput" value="">
+        <input type="text" name="fullname" placeholder="Full Name" aria-label="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" aria-label="Email Address" required>
+        <input type="tel" name="phone" placeholder="Mobile Number" aria-label="Mobile Number" required>
+        <textarea name="description" placeholder="Tell us a little about yourself (optional)" aria-label="Short Description"></textarea>
+        <div class="file-input-wrapper">
+          <label for="cv-upload">Please attach an up-to-date CV (Word or PDF format)</label>
+          <input type="file" id="cv-upload" name="cv" accept=".pdf,.doc,.docx" aria-label="Upload CV" required>
+        </div>
+        <button type="submit" class="cta-button">Send Application</button>
+      </form>
+    </div>
+  </div>
+
+  <section class="section light-blue">
+    <div class="container">
+      <div class="text">
+        <h2>Why Work With Us?</h2>
+        <p>Florence Care 24 connects you with trusted employers, supports your professional development, and ensures every placement meets high standards of care and compliance.</p>
+      </div>
+      <div class="image">
+        <img src="wwwroot/images/pexels-khwanchai-4175028.jpg" alt="Healthcare team" loading="lazy">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-logo">
+    <span>Florence Care 24 LTD</span>
+  </div>
+  <div class="footer-links">
+    <a href="home.html#about">About</a>
+    <a href="home.html#services">Services</a>
+    <a href="home.html#approach">Approach</a>
+    <a href="home.html#contact">Contact</a>
+    <a href="vacancies.html">Career</a>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Florence Care 24 LTD. Specialist healthcare and care home staffing agency. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+<script src="wwwroot/script/home.js"></script>
+<script src="wwwroot/script/vacancies.js"></script>
+
+</body>
+</html>
