@@ -904,6 +904,10 @@ textarea {
   .section {
     padding: 100px 30px;
   }
+
+  .cta-button {
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
