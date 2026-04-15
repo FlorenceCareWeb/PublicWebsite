@@ -75,55 +75,51 @@ if (applyForm) {
       const ipData = await ipResponse.json();
       document.getElementById('ip').value = ipData.ip;
 
-      // Handle CV
+      // Handle CV upload as base64 if present
       const fileInput = document.getElementById('cv-upload');
       if (fileInput.files.length > 0) {
         const file = fileInput.files[0];
-        const reader = new FileReader();
-        reader.onload = function(event) {
-          const dataUrl = event.target.result;
-          const base64 = dataUrl.split(',')[1];
-          document.getElementById('cv_data').value = base64;
-          document.getElementById('cv_filename').value = file.name;
-          document.getElementById('cv_content_type').value = file.type;
-          // Now submit
-          submitForm();
-        };
-        reader.readAsDataURL(file);
-      } else {
-        submitForm();
-      }
-
-      async function submitForm() {
-        // Disable button and show loading state
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-
-        // Create FormData from the form
-        const formData = new FormData(applyForm);
-
-        // Send to Google Apps Script
-        const response = await fetch(applyForm.action, {
-          method: 'POST',
-          body: formData,
-          mode: 'no-cors'
+        const dataUrl = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = () => reject(reader.error);
+          reader.readAsDataURL(file);
         });
 
-        // Show success message
-        formMessage.style.display = 'block';
-        formMessage.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
-        formMessage.style.color = '#4CAF50';
-        formMessage.style.borderLeft = '4px solid #4CAF50';
-        formMessage.textContent = '✓ Application sent successfully! We\'ll contact you soon.';
-
-        // Reset form
-        applyForm.reset();
-
-        // Hide message after 5 seconds
-        setTimeout(() => {
-          formMessage.style.display = 'none';
-        }, 5000);
+        const base64 = dataUrl.split(',')[1];
+        document.getElementById('cv_data').value = base64;
+        document.getElementById('cv_filename').value = file.name;
+        document.getElementById('cv_content_type').value = file.type;
       }
+
+      // Disable button and show loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      // Create FormData from the form
+      const formData = new FormData(applyForm);
+
+      // Send to Google Apps Script
+      await fetch(applyForm.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
+
+      // Show success message
+      formMessage.style.display = 'block';
+      formMessage.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
+      formMessage.style.color = '#4CAF50';
+      formMessage.style.borderLeft = '4px solid #4CAF50';
+      formMessage.textContent = '✓ Application sent successfully! We\'ll contact you soon.';
+
+      // Reset form
+      applyForm.reset();
+
+      // Hide message after 5 seconds
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+      }, 5000);
 
     } catch (error) {
       formMessage.style.display = 'block';
