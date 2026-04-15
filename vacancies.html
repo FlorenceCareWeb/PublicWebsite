@@ -51,7 +51,7 @@
       <div class="job-grid">
         <article class="job-card" data-role="Registered Nurse">
           <div class="job-card-image">
-            <img src="wwwroot/images/national-cancer-institute-BxXgTQEw1M4-unsplash.jpg" alt="Registered Nurse role">
+            <img src="wwwroot/images/pexels-rdne-6129676.jpg" alt="Registered Nurse role" style="object-position: top! important;">
           </div>
           <div class="job-card-body">
             <h3>Registered Nurse</h3>
@@ -106,9 +106,15 @@
     <div class="modal-content">
       <button type="button" class="modal-close" aria-label="Close application form">×</button>
       <h2>Apply for <span id="modalRoleLabel">this role</span></h2>
-      <form id="applyForm" action="https://script.google.com/macros/s/AKfycbynN6b266TuTg5R_dmMHqZb3daJe3hvCl4j4ZJzfg3kIm3zT0D0xjmzIvKSs1NDXv-p/exec" method="POST" enctype="multipart/form-data">
+      <form id="applyForm" action="https://script.google.com/macros/s/AKfycbyaY0rN1ozoTQyDNLE6h1EplyLvv9sJBPbEDX_K7ZLmHwm48Qw_1z44iFBY-RZYrCsG/exec" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="key" value="HSJ6SNBV4BH-JJNDVB5876AS-N23NJBHXXJKK-324866">
+        <input type="text" name="website" style="display:none">
+        <input type="hidden" name="ip" id="ip">
         <input type="hidden" name="source" value="Vacancies Page Application">
         <input type="hidden" name="role" id="applyRoleInput" value="">
+        <input type="hidden" name="cv_data" id="cv_data">
+        <input type="hidden" name="cv_filename" id="cv_filename">
+        <input type="hidden" name="cv_content_type" id="cv_content_type">
         <input type="text" name="fullname" placeholder="Full Name" aria-label="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" aria-label="Email Address" required>
         <input type="tel" name="phone" placeholder="Mobile Number" aria-label="Mobile Number" required>
@@ -118,6 +124,7 @@
           <input type="file" id="cv-upload" name="cv" accept=".pdf,.doc,.docx" aria-label="Upload CV" required>
         </div>
         <button type="submit" class="cta-button">Send Application</button>
+        <div id="formMessage" style="display:none; margin-top: 15px; padding: 12px; border-radius: 8px; text-align: center; font-weight: 500;"></div>
       </form>
     </div>
   </div>
